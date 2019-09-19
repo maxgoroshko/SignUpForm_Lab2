@@ -2,6 +2,7 @@ package edu.temple.signupform;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 
 public class FormActivity extends AppCompatActivity {
 
-    EditText name;
+    public EditText name;
     EditText password;
     EditText rePassword;
     EditText email;
@@ -36,7 +37,6 @@ public class FormActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkDataEntered();
-
             }
         });
     }
@@ -64,7 +64,7 @@ public class FormActivity extends AppCompatActivity {
     {
         if(isEmpty(name) || isEmpty(email) || isEmpty(password) || isEmpty(rePassword))
         {
-            Toast.makeText(this, "You got to input name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "You have to fill up all the fields", Toast.LENGTH_SHORT).show();
         }
 
         if (!isEmail(email))
@@ -76,9 +76,17 @@ public class FormActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
         }
+        else {
+            openNewActivity();
+        }
+    }
 
-
-
+    void openNewActivity()
+    {
+        String nameValue = name.getText().toString();
+        Intent intent = new Intent(this,SignUpHello.class);
+        intent.putExtra("NAME",nameValue);
+        startActivity(intent);
     }
 
 
