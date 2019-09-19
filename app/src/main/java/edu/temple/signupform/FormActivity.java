@@ -74,7 +74,7 @@ public class FormActivity extends AppCompatActivity {
 
         if (!isPassword(password,rePassword))
         {
-            rePassword.setError("Passwords don't match");
+            Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
         }
 
 
