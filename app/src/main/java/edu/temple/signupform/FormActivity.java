@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,12 +47,23 @@ public class FormActivity extends AppCompatActivity {
         return TextUtils.isEmpty(checkText);
     }
 
+    boolean isEmail(EditText text)
+    {
+        CharSequence checkEmail = text.getText().toString();
+        return (!TextUtils.isEmpty(checkEmail) && Patterns.EMAIL_ADDRESS.matcher(checkEmail).matches());
+    }
+
     void checkDataEntered()
     {
-        if(isEmpty(name))
+        if(isEmpty(name) || isEmpty(email) || isEmpty(password) || isEmpty(rePassword))
         {
             Toast.makeText(this, "You got to input name", Toast.LENGTH_SHORT).show();
         }
+        if (!isEmail(email))
+        {
+            email.setError("Invalid email");
+        }
+
     }
 
 
