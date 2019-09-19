@@ -53,16 +53,31 @@ public class FormActivity extends AppCompatActivity {
         return (!TextUtils.isEmpty(checkEmail) && Patterns.EMAIL_ADDRESS.matcher(checkEmail).matches());
     }
 
+    boolean isPassword(EditText pass1, EditText pass2)
+    {
+        CharSequence checkPass1 = pass1.getText().toString();
+        CharSequence checkPass2 = pass2.getText().toString();
+        return checkPass1.equals(checkPass2);
+    }
+
     void checkDataEntered()
     {
         if(isEmpty(name) || isEmpty(email) || isEmpty(password) || isEmpty(rePassword))
         {
             Toast.makeText(this, "You got to input name", Toast.LENGTH_SHORT).show();
         }
+
         if (!isEmail(email))
         {
             email.setError("Invalid email");
         }
+
+        if (!isPassword(password,rePassword))
+        {
+            rePassword.setError("Passwords don't match");
+        }
+
+
 
     }
 
