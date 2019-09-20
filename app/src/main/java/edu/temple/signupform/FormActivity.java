@@ -67,12 +67,12 @@ public class FormActivity extends AppCompatActivity {
             Toast.makeText(this, "You have to fill up all the fields", Toast.LENGTH_SHORT).show();
         }
 
-        if (!isEmail(email))
+        else if (!isEmail(email))
         {
             email.setError("Invalid email");
         }
 
-        if (!isPassword(password,rePassword))
+        else if (!isPassword(password,rePassword))
         {
             Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
         }
