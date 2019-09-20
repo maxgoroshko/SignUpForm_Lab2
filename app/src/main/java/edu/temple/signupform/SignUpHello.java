@@ -17,10 +17,8 @@ public class SignUpHello extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_hello);
 
-
         textView = findViewById(R.id.textView);
         textView.setText("Welcome, " + getIntent().getStringExtra("NAME")+ " ,to the SignUpForm App");
-
     }
 }
 

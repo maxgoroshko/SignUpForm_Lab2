@@ -13,12 +13,11 @@ import android.widget.Toast;
 
 public class FormActivity extends AppCompatActivity {
 
-    public EditText name;
+    EditText name;
     EditText password;
     EditText rePassword;
     EditText email;
     Button signUp;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,6 @@ public class FormActivity extends AppCompatActivity {
         rePassword = findViewById(R.id.rePasswordText);
         email = findViewById(R.id.emailText);
         signUp = findViewById(R.id.signUp);
-
 
         signUp.setOnClickListener(new View.OnClickListener()
         {
@@ -88,6 +86,4 @@ public class FormActivity extends AppCompatActivity {
         intent.putExtra("NAME",nameValue);
         startActivity(intent);
     }
-
-
 }
