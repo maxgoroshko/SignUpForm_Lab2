@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SignUpHello extends FormActivity {
+public class SignUpHello extends AppCompatActivity {
 
     TextView textView;
 
@@ -19,7 +19,7 @@ public class SignUpHello extends FormActivity {
 
 
         textView = findViewById(R.id.textView);
-        textView.setText("Welcome, " + getIntent().getStringExtra("NAME")+ " to the SignUpForm App");
+        textView.setText("Welcome, " + getIntent().getStringExtra("NAME")+ " ,to the SignUpForm App");
 
     }
 }
